@@ -17,6 +17,10 @@
 
 (setq visible-bell t)
 
+;; Add theme path
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+(load-theme 'zenburn t)
+
 ;;; When in Text mode, want to be in Auto-Fill mode.
 ;;;
 (when nil
@@ -276,14 +280,14 @@ This function also returns nil meaning don't specify the indentation."
 (setq auto-mode-alist (cons (cons "\\.launch$" 'xml-mode) auto-mode-alist))
 
 ;; sudo apt-get install rosemacs-el
-(add-to-list 'load-path "/opt/ros/indigo/share/emacs/site-lisp")
+(add-to-list 'load-path "/opt/ros/kinetic/share/emacs/site-lisp")
 (when (require 'rosemacs nil t)
   (invoke-rosemacs)
   (global-set-key "\C-x\C-r" ros-keymap))
 
 ;; vrml mode
-(add-to-list 'load-path (format "%s/.emacs.d" (getenv "HOME")))
-(when (file-exists-p (format "%s/.emacs.d/vrml-mode.el" (getenv "HOME")))
+(add-to-list 'load-path (format "%s/.emacs.d/site-lisp" (getenv "HOME")))
+(when (file-exists-p (format "%s/.emacs.d/site-lisp/vrml-mode.el" (getenv "HOME")))
   (load "vrml-mode.el")
   (autoload 'vrml-mode "vrml" "VRML mode." t)
   (setq auto-mode-alist (append '(("\\.wrl\\'" . vrml-mode))
@@ -304,6 +308,20 @@ This function also returns nil meaning don't specify the indentation."
   (add-to-list 'auto-mode-alist '("¥¥.yml$" . yaml-mode)))
 
 ;;emacs trr
-(add-to-list 'load-path "~/.emacs-trr")
-(require 'trr)
+;; (add-to-list 'load-path "~/.emacs-trr")
+;; (require 'trr)
 ;; (setq trr-japanese t)  ;; uncomment this to play with Japanese mode
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("3b36631f95ebfd9ec35f382249ad861f3b3d51f8bed4882184ec8745deaada28" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

@@ -113,7 +113,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-##source /opt/ros/indigo/setup.bash
+source /opt/ros/kinetic/setup.bash
 ##source ~/ros/indigo/devel/setup.bash
 
 
@@ -131,10 +131,14 @@ export SVN_SSH="ssh -l ${SSH_USER}"
 export OGRE_RTT_MODE=Copy
 
 ## color grep
-export GREP_OPTIONS='--color=auto'
+# export GREP_OPTIONS='--color=auto'
 
 alias em='emacs -nw'
 # export VIGIR_ROOT_DIR=/home/yuki/flor_repo
 # source /home/yuki/ASGARD/Scripts/setup.bash
-source /home/yuki/catkin_ws/tutorials/devel/setup.bash
+# source /home/yuki/catkin_ws/tutorials/devel/setup.bash
 PS1='[$(roscd; echo `pwd` | rev | cut -f2 -d '/' | rev)] '$PS1
+
+# virtualenv and virtualenvwrapper
+# export WORKON_HOME=/home/yuki/.virtualenvs
+# source /usr/local/bin/virtualenvwrapper.sh
